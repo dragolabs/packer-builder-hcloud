@@ -45,7 +45,7 @@ func (s *stepCreateSSHKey) Run(state multistep.StateBag) multistep.StepAction {
 	}
 
 	publicKey := string(ssh.MarshalAuthorizedKey(pub))
-	keyName := fmt.Sprintf("packer-hcloud-%d", time.Now().Unix())
+	keyName := fmt.Sprintf("packer-hcloud-%d", time.Now().UnixNano())
 
 	ctx := context.Background()
 

@@ -44,7 +44,7 @@ func (s *stepCreateServer) Run(state multistep.StateBag) multistep.StepAction {
 		return multistep.ActionHalt
 	}
 
-	name := fmt.Sprintf("packer-hcloud-%d", time.Now().Unix())
+	name := fmt.Sprintf("packer-hcloud-%d", time.Now().UnixNano())
 	ui.Say(fmt.Sprintf("Creating new server: %s", name))
 
 	serverCreateOpts := hcloud.ServerCreateOpts{
